@@ -6,22 +6,33 @@ public class Stabilizer : MonoBehaviour {
     GameObject[] objects;
     public int upperGroundCounter;
     public int lowerGroundCounter;
+
+    private GameManagerScript gameManager;
     // Use this for initialization
+    int currentStep;
+
     void Start () {
-		
-	}
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
+       
+    }
+
+
+    public void stabilize()
+    {
         objects = GameObject.FindGameObjectsWithTag("Block");
         foreach (GameObject block in objects)
         {
             var coordinates = block.GetComponent<ElementScript>();
-            if(coordinates.localY != 5)
+            if (coordinates.localY != 0)
             {
                 upperGroundCounter++;
             }
-            if(coordinates.localY < 5)
+            if (coordinates.localY < 0)
             {
                 lowerGroundCounter++;
                 break;
@@ -45,6 +56,7 @@ public class Stabilizer : MonoBehaviour {
         }
         upperGroundCounter = 0;
         lowerGroundCounter = 0;
+
     }
 }
 

@@ -6,21 +6,24 @@ public class GameManagerScript : MonoBehaviour {
 
     public int step;
     public float totalDeltaTime;
-    // Use this for initialization
+	public bool gamePlay = false;
+
+	// Use this for initialization
     void Start () {
         step = 0;
         totalDeltaTime = 0;
 
     }
-	
+
 	// Update is called once per frame
 	void Update () {
-        totalDeltaTime +=Time.deltaTime;
-        if(totalDeltaTime > 1)
-        {
-            totalDeltaTime = totalDeltaTime - 1;
-            step++;
-        }
+		if (gamePlay) {
+			totalDeltaTime += Time.deltaTime;
+			if (totalDeltaTime > 1) {
+				totalDeltaTime = totalDeltaTime - 1;
+				step++;
+			}
+		}
 	}
 
     public int GetStep()

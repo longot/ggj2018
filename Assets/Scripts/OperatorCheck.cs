@@ -15,29 +15,28 @@ public class OperatorCheck : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+
+    }
+
+    void doshit()
+    {
         objects = GameObject.FindGameObjectsWithTag("Block");
 
         int maxLocalY = -1;
         foreach (GameObject block in objects)
         {
             var coordinates = block.GetComponent<ElementScript>();
-            if(activeStepLocalX == coordinates.localX)
+            if (activeStepLocalX == coordinates.localX)
             {
-                    if(maxLocalY < coordinates.localY)
-                    {
-                        maxLocalY = coordinates.localY;
-                    }
-                    
-
+               
             }
         }
 
-        if(maxLocalY != -1)
+        if (maxLocalY != -1)
         {
 
             //Запускает функцию ротейта, эдда и другие функции операторов. 
             maxLocalY = -1;
         }
-
     }
 }

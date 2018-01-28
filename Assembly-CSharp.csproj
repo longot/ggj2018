@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\RotateTransformationScript.cs" />
      <Compile Include="Assets\Scripts\RotationManager.cs" />
      <Compile Include="Assets\Scripts\Stabilizer.cs" />
+     <Compile Include="Assets\Scripts\StartGameScript.cs" />
      <Compile Include="Assets\Scripts\TransformToolSet.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

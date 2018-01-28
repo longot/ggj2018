@@ -19,11 +19,7 @@ public class RotateTransformationScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!isExecuted && activeStep == gameManager.GetStep())
-        {
-            isExecuted = true;
-            figure.RotateElement(gameManager.GetStep());
-        }
+
     }
 
     public void SetActiveStep(int step)

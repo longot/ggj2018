@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AddTransformerScript : MonoBehaviour {
 
-    int activeStep = 3;
+    public int activeStep;
+    public int interval;
     bool isExecuted;
-    bool isExecuted2;
+
     FigureScript figure;
     GameManagerScript gameManager;
 
@@ -18,15 +19,15 @@ public class AddTransformerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!isExecuted && activeStep == gameManager.GetStep())
+
+        if (gameManager.GetStep() == 0 || interval == 0)
         {
-            isExecuted = true;
-            figure.AddElement(gameManager.GetStep());
+            return;
         }
-        if (!isExecuted2 && gameManager.GetStep() == 5)
+
+        if (!isExecuted && gameManager.GetStep() % interval == 0)
         {
-            isExecuted2 = true;
-            figure.AddElement(gameManager.GetStep());
+            isExecuted = figure.AddElement(activeStep);
         }
     }
 

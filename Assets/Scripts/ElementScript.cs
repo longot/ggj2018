@@ -11,26 +11,33 @@ public class ElementScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-      
+       
     }
 
     // Update is called once per frame
 
     void Update () {
+        float unityY = 1.24f * localY;
+        transform.position = new Vector3(transform.position.x, unityY, transform.position.z);
 
-	}
+        float unityX = 1.24f * localX;
+        transform.position = new Vector3(unityX, transform.position.y, transform.position.z);
+    }
 
     public void SetLocalY(int y)
     {
         localY = y;
-        float unityY = 1.24f * localY;
-        transform.position = new Vector3(transform.position.x, unityY, transform.position.z);
+        
     }
 
     public void SetLocalX(int x)
     {
         localX = x;
-        float unityX = 1.24f * localX;
-        transform.position = new Vector3(unityX, transform.position.y, transform.position.z);
+        
+    }
+
+    public int getLocalY()
+    {
+        return localY;
     }
 }
