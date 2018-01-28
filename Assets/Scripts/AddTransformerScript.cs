@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddTransformerScript : MonoBehaviour {
+public class AddTransformerScript : TranformerScript {
 
-    public int activeStep;
     public int interval;
     bool isExecuted;
 
@@ -16,9 +15,12 @@ public class AddTransformerScript : MonoBehaviour {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         figure = GameObject.Find("FigureGroup").GetComponent<FigureScript>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public float speed = 10.0F;
+    public float rotationSpeed = 100.0F;
+
+    // Update is called once per frame
+    void Update () {
 
         if (gameManager.GetStep() == 0 || interval == 0)
         {
@@ -29,10 +31,18 @@ public class AddTransformerScript : MonoBehaviour {
         {
             isExecuted = figure.AddElement(activeStep);
         }
+
+
+        float translation = Input.GetAxis("Vertical") * speed;
+        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+        translation *= Time.deltaTime;
+        rotation *= Time.deltaTime;
+        transform.Translate(0, 0, translation);
+        transform.Rotate(0, rotation, 0);
     }
 
-    public void SetActiveStep(int step)
+    void OnMouseDown()
     {
-        activeStep = step;
+        gameManager.setActiveTool(gameObject);
     }
 }

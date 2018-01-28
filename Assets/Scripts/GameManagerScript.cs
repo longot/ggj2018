@@ -6,7 +6,8 @@ public class GameManagerScript : MonoBehaviour {
 
     public int step;
     public float totalDeltaTime;
-	public bool gamePlay = false;
+    public bool gamePlay = false;
+    public GameObject activeTool;
 
 	// Use this for initialization
     void Start () {
@@ -29,5 +30,15 @@ public class GameManagerScript : MonoBehaviour {
     public int GetStep()
     {
         return step;
+    }
+
+    public void setActiveTool(GameObject game)
+    {
+        activeTool = game;
+    }
+
+    public GameObject getActiveTool()
+    {
+        return activeTool;
     }
 }

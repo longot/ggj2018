@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateTransformationScript : MonoBehaviour {
+public class RotateTransformationScript : TranformerScript {
 
     int activeStep = 7;
     bool isExecuted;
@@ -26,4 +26,6 @@ public class RotateTransformationScript : MonoBehaviour {
     {
         activeStep = step;
     }
+
+  
 }

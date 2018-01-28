@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationManager : MonoBehaviour {
+public class RotationManager : TranformerScript {
 
     GameObject[] objects;
 
-    public int activeStep;
     public int interval = 1;
     bool isExecuted;
 
@@ -93,4 +92,9 @@ public class RotationManager : MonoBehaviour {
             stabilizer.stabilize();
         }
     }
+		
+	void OnMouseDown()
+	{
+		gameManager.setActiveTool(gameObject);
+	}
 }
